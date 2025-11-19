@@ -7,7 +7,7 @@
 set -xe
 
 ## Name of the new user
-USER=screen
+USER=pi
 
 ## Create User
 adduser --system --disabled-password --shell /bin/bash ${USER}
@@ -35,7 +35,7 @@ After=systemd-user-sessions.service
 
 [Service]
 User=${USER}
-ExecStart=/usr/bin/xinit /usr/bin/feh -FZY $(pwd)/img/splashscreen-1080p-dark.png
+ExecStart=/usr/bin/xinit /usr/bin/feh -FZY /home/pi/prind/img/splashscreen-1080p-dark.png
 
 [Install]
 WantedBy=multi-user.target
