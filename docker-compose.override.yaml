@@ -7,7 +7,7 @@ x-ustreamer-svc: &ustreamer-svc
     --port=8080
     --slowdown
     --device=/dev/webcam
-    --resolution=1280x960
+    --resolution=1920x1080
     --format=MJPEG
     --desired-fps=30
 
