@@ -9,10 +9,6 @@ set -xe
 ## Name of the new user
 USER=pi
 
-## Create User
-adduser --system --disabled-password --shell /bin/bash ${USER}
-usermod -a -G tty ${USER}
-
 ## Install Packages
 apt update
 apt install -y feh xterm xinit xinput xserver-xorg xserver-xorg-legacy x11-xserver-utils xserver-xorg-video-fbdev
