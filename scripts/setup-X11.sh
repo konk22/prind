@@ -11,7 +11,26 @@ USER=pi
 
 ## Install Packages
 apt update
-apt install -y feh xterm xinit xinput xserver-xorg xserver-xorg-legacy x11-xserver-utils xserver-xorg-video-fbdev
+packages=(
+    feh
+    xterm
+    xinit
+    xinput
+    xserver-xorg
+    xserver-xorg-legacy
+    x11-xserver-utils
+    xserver-xorg-video-fbdev
+)
+
+## Install only missing packages
+for pkg in "${packages[@]}"; do
+    if dpkg -s "$pkg" &> /dev/null; then
+        echo "Package $pkg is already installed, skipping..."
+    else
+        echo "Installing $pkg..."
+        apt install -y "$pkg"
+    fi
+done
 
 ## Allow any User to start X
 if [ -f /etc/X11/Xwrapper.config ]; then
